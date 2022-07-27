@@ -11,6 +11,7 @@ count = 0
   # pick random from distionary
 followers = []
 def get_random_account():
+  """Picks a random account from game_data.py and returns readable format."""
   account = random.choice(game_data.data)
   followers.append(account["follower_count"])
   name = account["name"]
@@ -21,11 +22,13 @@ def get_random_account():
 # compare followers
 random_a = get_random_account()
 random_b = get_random_account()
+if random_b == random_a:
+  random_b = get_random_account()
 
 while not game_over:
-  print(random_a)
+  print(f"Compare A: {random_a}")
   print(vs)
-  print(random_b)
+  print(f"Against B: {random_b}")
   # print(followers)
 
   def compare(a, b):
